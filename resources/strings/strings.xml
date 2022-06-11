@@ -5,4 +5,13 @@
 
     <string id="menu_label_1">Item 1</string>
     <string id="menu_label_2">Item 2</string>
+
+    <string id="type_double">Two teams</string>
+    <string id="type_triple">Three teams</string>
+
+    <string id="settings_maximum_number_points_title">Maximum points</string>
+    <string id="settings_enable_sound">Enable sound</string>
+    <string id="settings_display_time">Display time</string>
+    <string id="settings_default_match_type">Default match type</string>
+
 </strings>

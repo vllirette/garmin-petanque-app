@@ -5,6 +5,7 @@ class PetanqueView extends WatchUi.View {
 
     function initialize() {
         View.initialize();
+        config = new MatchConfig();
     }
 
     // Load your resources here
@@ -16,6 +17,16 @@ class PetanqueView extends WatchUi.View {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() as Void {
+        if(config.isValid()) {
+            var app = Application.getApp();
+            app.getProperty("maximum_points");
+
+            var match = new Match(config);
+            app.setMatch(match);
+
+            var view = new MatchView();
+            Watch.UI.switchToView(view, new MatchViewDelegate(view), WatchUi.SLIDE_IMMEDIATE)
+        }
     }
 
     // Update the view

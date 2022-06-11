@@ -1,8 +1,11 @@
 import Toybox.Application;
+import Toybox.Attention;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
 class PetanqueApp extends Application.AppBase {
+
+    private var match;
 
     function initialize() {
         AppBase.initialize();
@@ -21,6 +24,35 @@ class PetanqueApp extends Application.AppBase {
         return [ new PetanqueView(), new PetanqueDelegate() ] as Array<Views or InputDelegates>;
     }
 
+    function getMatch() {
+        return match;
+    }
+
+    function setMatch(m) {
+        match = m;
+    }
+
+        function onMatchBegin() {
+        if(Attention has :playTone) {
+            if(getProperty("enable_sound")) {
+                Attention.playTone(Attention.TONE_START);
+            }
+        }
+        if(Attention has :vibrate) {
+            Attention.vibrate([new Attention.VibeProfile(80, 200)]);
+        }
+    }
+
+    function onMatchEnd(winner) {
+        if(Attention has :playTone) {
+            if(getProperty("enable_sound")) {
+                Attention.playTone(winner == YOU ? Attention.TONE_SUCCESS : Attention.TONE_FAILURE);
+            }
+        }
+        if(Attention has :vibrate) {
+            Attention.vibrate([new Attention.VibeProfile(80, 200)]);
+        }
+    }
 }
 
 function getApp() as PetanqueApp {

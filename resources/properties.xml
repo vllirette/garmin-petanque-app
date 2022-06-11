@@ -1,0 +1,8 @@
+<resources>
+	<properties>
+		<property id="maximum_points" type="number">13</property>
+		<property id="enable_sound" type="boolean">true</property>
+		<property id="display_time" type="boolean">false</property>
+		<property id="default_match_type" type="number">1</property>
+	</properties>
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <settings>
+        <setting propertyKey="@Properties.maximum_points" title="@Strings.settings_maximum_number_points_title">
+            <settingConfig type="numeric" required="true" min="13" />
+        </setting>
+
+        <setting propertyKey="@Properties.enable_sound" title="@Strings.settings_enable_sound">
+            <settingConfig type="boolean" required="true" />
+        </setting>
+
+        <setting propertyKey="@Properties.display_time" title="@Strings.settings_display_time">
+            <settingConfig type="boolean" required="true" />
+        </setting>
+
+        <setting propertyKey="@Properties.default_match_type" title="@Strings.settings_default_match_type">
+            <settingConfig type="list">
+                <listEntry value="0">@Strings.type_double</listEntry>
+                <listEntry value="1">@Strings.type_triple</listEntry>
+            </settingConfig>
+        </setting>
+    </settings>
+</resources>
